@@ -1,7 +1,8 @@
 <?php
+namespace Lembatu;
 
-class NerdController extends \BaseController {
-
+class NerdController extends \BaseController
+{
     /**
      * Display a listing of the resource.
      *
@@ -27,7 +28,6 @@ class NerdController extends \BaseController {
         // load the create form (app/views/nerds/create.blade.php)
         return View::make('nerds.create');
     }
-
 
     /**
      * Store a newly created resource in storage.
@@ -60,6 +60,7 @@ class NerdController extends \BaseController {
 
             // redirect
             Session::flash('message', 'Successfully created nerd!');
+
             return Redirect::to('nerds');
         }
     }
@@ -67,7 +68,7 @@ class NerdController extends \BaseController {
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function show($id)
@@ -80,11 +81,10 @@ class NerdController extends \BaseController {
             ->with('nerd', $nerd);
     }
 
-
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function edit($id)
@@ -97,11 +97,10 @@ class NerdController extends \BaseController {
             ->with('nerd', $nerd);
     }
 
-
     /**
      * Update the specified resource in storage.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function update($id)
@@ -130,6 +129,7 @@ class NerdController extends \BaseController {
 
             // redirect
             Session::flash('message', 'Successfully updated nerd!');
+
             return Redirect::to('nerds');
         }
     }
@@ -137,7 +137,7 @@ class NerdController extends \BaseController {
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int      $id
      * @return Response
      */
     public function destroy($id)
@@ -148,8 +148,7 @@ class NerdController extends \BaseController {
 
         // redirect
         Session::flash('message', 'Successfully deleted the nerd!');
+
         return Redirect::to('nerds');
     }
-
-
 }

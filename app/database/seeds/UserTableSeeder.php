@@ -1,8 +1,8 @@
 <?php
+namespace Lembatu;
 
 class UserTableSeeder extends Seeder
 {
-
     public function run()
     {
         DB::table('users')->delete();
@@ -13,5 +13,4 @@ class UserTableSeeder extends Seeder
             'password' => Hash::make('awesome'),
         ));
     }
-
 }
