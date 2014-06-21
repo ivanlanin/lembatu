@@ -1,4 +1,5 @@
 <?php
+namespace Lembatu;
 
 class ExampleTest extends TestCase
 {
@@ -13,5 +14,4 @@ class ExampleTest extends TestCase
 
         $this->assertTrue($this->client->getResponse()->isOk());
     }
-
 }
