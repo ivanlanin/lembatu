@@ -1,2 +1,0 @@
-chris@scotch.io
-awesome
