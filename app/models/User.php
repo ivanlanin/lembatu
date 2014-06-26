@@ -1,5 +1,5 @@
 <?php
-namespace Lembatu;
+// namespace Lembatu;
 
 use Illuminate\Auth\UserTrait;
 use Illuminate\Auth\UserInterface;

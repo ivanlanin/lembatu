@@ -11,8 +11,8 @@ before_script:
     - composer install --prefer-source --dev
 
 script:
-    - ./vendor/bin/phpcs src/ tests/ --standard=PSR2 -n
-    # - ./vendor/bin/phpcpd src/ tests/ --verbose
-    # - ./vendor/bin/phpmd src/,tests/ text design,naming,unusedcode,controversial,codesize
-    # - ./vendor/bin/phploc src/
+    - ./vendor/bin/phpcs app/ --standard=./phpcs.xml -n
+    # - ./vendor/bin/phpcpd app/ --verbose
+    # - ./vendor/bin/phpmd app/ text design,naming,unusedcode,controversial,codesize
+    # - ./vendor/bin/phploc app/
     - phpunit
