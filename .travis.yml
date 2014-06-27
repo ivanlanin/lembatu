@@ -1,7 +1,6 @@
 language: php
 
 php:
-    - 5.3
     - 5.4
     - 5.5
     - 5.6
@@ -11,8 +10,8 @@ before_script:
     - composer install --prefer-source --dev
 
 script:
-    - ./vendor/bin/phpcs app/ --standard=./phpcs.xml -n
-    # - ./vendor/bin/phpcpd app/ --verbose
+    - ./vendor/bin/phpcs app/ -n --standard=./phpcs.xml --ignore=app/database
+    - ./vendor/bin/phpcpd app/ --verbose
     # - ./vendor/bin/phpmd app/ text design,naming,unusedcode,controversial,codesize
     # - ./vendor/bin/phploc app/
     - phpunit

@@ -2,6 +2,7 @@
     "name": "apbgroup/lembatu",
     "description": "Lembatu (lembar waktu) - A timesheet application using Lavarel.",
     "require": {
+        "php": ">=5.4",
         "laravel/framework": "4.2.*",
         "doctrine/dbal": "2.*"
     },
