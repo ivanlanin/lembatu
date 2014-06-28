@@ -1,7 +1,7 @@
 <?php
 // namespace Lembatu;
 
-class NerdController extends \BaseController
+class NerdController extends BaseController
 {
     /**
      * Display a listing of the resource.
