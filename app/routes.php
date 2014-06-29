@@ -9,7 +9,7 @@ Route::filter('auth', function () {
 
 // Dashboard
 Route::get('/', function () {
-    return View::make('dashboard');
+    return View::make('home.dashboard');
 });
 
 // Login and logout
@@ -22,4 +22,3 @@ Route::group(array('before' => 'auth'), function () {
     Route::resource('nerds', 'NerdController');
     Route::resource('projects', 'ProjectController');
 });
-
