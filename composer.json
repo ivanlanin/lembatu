@@ -4,7 +4,8 @@
     "require": {
         "php": ">=5.4",
         "laravel/framework": "4.2.*",
-        "doctrine/dbal": "2.*"
+        "doctrine/dbal": "2.*",
+        "phpoffice/phpword": "dev-develop"
     },
     "require-dev": {
         "phpunit/phpunit": "4.*",
