@@ -1,14 +1,32 @@
 <?php
 // namespace Lembatu;
 
+/**
+ * Home controller
+ */
 class HomeController extends BaseController
 {
+    /**
+     * Show dashboard
+     */
+    public function showDashboard()
+    {
+        return View::make('home.dashboard')
+            ->with('title', 'Dashboard');
+    }
+
+    /**
+     * Show login
+     */
     public function showLogin()
     {
         // show the form
         return View::make('home.login');
     }
 
+    /**
+     * Do login
+     */
     public function doLogin()
     {
         // validate the info, create rules for the inputs
@@ -52,6 +70,9 @@ class HomeController extends BaseController
         }
     }
 
+    /**
+     * Do logout
+     */
     public function doLogout()
     {
         Auth::logout(); // log the user out of our application

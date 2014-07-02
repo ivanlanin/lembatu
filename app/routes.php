@@ -7,12 +7,8 @@ Route::filter('auth', function () {
     }
 });
 
-// Dashboard
-Route::get('/', function () {
-    return View::make('home.dashboard');
-});
-
-// Login and logout
+// Dashboard, login, and logout
+Route::get('/', array('uses' => 'HomeController@showDashboard'));
 Route::get('logout', array('uses' => 'HomeController@doLogout'));
 Route::get('login', array('uses' => 'HomeController@showLogin'));
 Route::post('login', array('uses' => 'HomeController@doLogin'));
