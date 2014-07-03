@@ -17,7 +17,3 @@ Lembatu (lembar waktu) is a timesheet application build using laravel.
 - Create `app/models/Project.php`
 - Run `php artisan controller:make ProjectController`
 - Add route in `app/routes.php`
-
-
-
-- php artisan migrate:make create_timesheets_table --create=timesheets
