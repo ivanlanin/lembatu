@@ -4,11 +4,6 @@
 
 <title>Lembatu</title>
 
-<!-- Core CSS - Include with every page -->
-<link href="{{ URL::asset('css/bootstrap.min.css') }}" rel="stylesheet">
-<link href="{{ URL::asset('font-awesome/css/font-awesome.css') }}" rel="stylesheet">
-
-<!-- Page-Level Plugin CSS - Blank -->
-
-<!-- SB Admin CSS - Include with every page -->
-<link href="{{ URL::asset('css/sb-admin.css') }}" rel="stylesheet">
+<link href="{{ URL::asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+<link href="{{ URL::asset('assets/css/font-awesome.min.css') }}" rel="stylesheet">
+<link href="{{ URL::asset('assets/css/sb-admin.css') }}" rel="stylesheet">

@@ -7,6 +7,15 @@ Lembatu (lembar waktu) is a timesheet application build using laravel.
 - Schema http://laravel.com/docs/schema
 - Migration http://laravel.com/docs/migrations
 
+## Lessons learned
+
+- Routing
+- Schema and migration
+- Authentication
+- Localization
+- View & template
+- Controller
+
 ## Steps
 
 ### Project table

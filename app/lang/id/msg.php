@@ -10,4 +10,8 @@ return array(
     'manage' => 'Pengelolaan',
     'projects' => 'Proyek',
 
+    'pleaseSignIn' => 'Silakan masuk',
+    'username' => 'Pengguna',
+    'password' => 'Sandi',
+    'login' => 'Masuk',
 );

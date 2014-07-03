@@ -27,6 +27,33 @@ class ProjectController extends BaseController
     }
 
     /**
+     * Display the specified resource.
+     *
+     * @param int $id
+     * @return Response
+     */
+    public function show($id)
+    {
+        $project = Project::find($id);
+        return View::make('projects.show')
+            ->with('project', $project);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param int $id
+     * @return Response
+     */
+    public function edit($id)
+    {
+        $project = Project::find($id);
+
+        return View::make('projects.edit')
+            ->with('project', $project);
+    }
+
+    /**
      * Store a newly created resource in storage.
      *
      * @return Response
@@ -53,33 +80,6 @@ class ProjectController extends BaseController
 
             return Redirect::to('projects');
         }
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     * @return Response
-     */
-    public function show($id)
-    {
-        $project = Project::find($id);
-        return View::make('projects.show')
-            ->with('project', $project);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param int $id
-     * @return Response
-     */
-    public function edit($id)
-    {
-        $project = Project::find($id);
-
-        return View::make('projects.edit')
-            ->with('project', $project);
     }
 
     /**
