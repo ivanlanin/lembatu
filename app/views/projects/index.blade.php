@@ -5,7 +5,7 @@
     <div class="alert alert-info">{{ Session::get('message') }}</div>
 @endif
 
-<table class="table table-striped table-bordered">
+<table class="table table-striped table-bordered table-condensed">
     <thead>
         <tr>
             <td>ID</td>
@@ -15,7 +15,7 @@
         </tr>
     </thead>
     <tbody>
-    @foreach($projects as $key => $value)
+@foreach($projects as $key => $value)
         <tr>
             <td>{{ $value->id }}</td>
             <td>{{ $value->code }}</td>
@@ -25,7 +25,7 @@
                 <a class="btn btn-small btn-info" href="{{ URL::to('projects/' . $value->id . '/edit') }}">Edit</a>
             </td>
         </tr>
-    @endforeach
+@endforeach
     </tbody>
 </table>
 
