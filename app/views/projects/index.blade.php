@@ -28,4 +28,6 @@
     </tbody>
 </table>
 
+{{ $projects->links() }}
+
 @stop

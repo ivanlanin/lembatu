@@ -31,7 +31,7 @@ class ProjectController extends BaseController
      */
     public function index()
     {
-        $projects = Project::all();
+        $projects = Project::paginate(50);
         $this->pageHeader = Lang::get('msg.projectList');
         unset($this->breadcrumb[0]['url']);
 
