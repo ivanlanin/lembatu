@@ -5,13 +5,30 @@ return array(
     'settings' => 'Settings',
     'logout' => 'Logout',
 
+    // Side menu
     'search___' => 'Search...',
-    'dashboard' => 'Dashboard',
+    'home' => 'Home',
     'manage' => 'Manage',
-    'projects' => 'Projects',
+    'setup' => 'Setup',
+    'report' => 'Report',
 
+    // Login
     'pleaseSignIn' => 'Please sign in',
     'username' => 'Username',
     'password' => 'Password',
     'login' => 'Login',
+
+    // Common actions
+    'create' => 'Create',
+    'edit' => 'Edit',
+    'back' => 'Kembali',
+    'detail' => 'Detail',
+    'delete' => 'Delete',
+    'save' => 'Save',
+
+    // Projects
+    'projects' => 'Projects',
+    'newProject' => 'New project',
+    'editProject' => 'Edit project',
+    'projectList' => 'Project list',
 );

@@ -12,7 +12,8 @@ class HomeController extends BaseController
     public function showDashboard()
     {
         return View::make('home.dashboard')
-            ->with('title', 'Dashboard');
+            ->with('title', 'Dashboard')
+            ->with('pageHeader', Lang::get('msg.home'));
     }
 
     /**

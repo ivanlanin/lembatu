@@ -5,13 +5,30 @@ return array(
     'settings' => 'Pengaturan',
     'logout' => 'Keluar',
 
+    // Side menu
     'search___' => 'Cari...',
-    'dashboard' => 'Dasbor',
+    'home' => 'Beranda',
     'manage' => 'Pengelolaan',
-    'projects' => 'Proyek',
+    'setup' => 'Pengaturan',
+    'report' => 'Laporan',
 
+    // Login
     'pleaseSignIn' => 'Silakan masuk',
     'username' => 'Pengguna',
     'password' => 'Sandi',
     'login' => 'Masuk',
+
+    // Common actions
+    'create' => 'Baru',
+    'edit' => 'Edit',
+    'back' => 'Kembali',
+    'detail' => 'Detail',
+    'delete' => 'Hapus',
+    'save' => 'Simpan',
+
+    // Projects
+    'projects' => 'Proyek',
+    'newProject' => 'Proyek baru',
+    'editProject' => 'Edit proyek',
+    'projectList' => 'Daftar proyek',
 );

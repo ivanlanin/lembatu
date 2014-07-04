@@ -13,7 +13,7 @@
     {{ Form::text('name', Input::old('name'), array('class' => 'form-control')) }}
 </div>
 
-{{ Form::submit('Submit', array('class' => 'btn btn-primary')) }}
+{{ Form::submit(Lang::get('msg.save'), array('class' => 'btn btn-primary')) }}
 
 {{ Form::close() }}
 

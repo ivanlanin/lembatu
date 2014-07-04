@@ -17,6 +17,11 @@ body {
     }
 }
 
+.breadcrumb {
+    margin-bottom: 0px;
+    background-color: transparent;
+}
+
 /* Wrappers */
 
 /* ------------------------------- */
@@ -26,7 +31,7 @@ body {
 }
 
 #page-wrapper {
-    padding: 0 15px;
+    padding: 0 0px;
     min-height: 568px;
     background-color: #fff;
 }
@@ -35,10 +40,30 @@ body {
     #page-wrapper {
         position: inherit;
         margin: 0 0 0 200px;
-        padding: 0 30px;
+        padding: 0 0px;
         min-height: 1300px;
         border-left: 1px solid #e7e7e7;
     }
+}
+
+/* Custom */
+
+#content {
+    padding: 0px 15px;
+}
+
+form.delete-form {
+    display:inline; margin:0px; padding:0px;
+}
+
+h2.page-header {
+    margin: 0;
+    border-bottom-width: 0px;
+    font-size: 24px;
+}
+
+div.page-header-row {
+    padding: 15px 0px;
 }
 
 /* Navigation */

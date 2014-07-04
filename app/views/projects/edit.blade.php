@@ -15,7 +15,7 @@
     {{ Form::text('name', null, array('class' => 'form-control')) }}
 </div>
 
-{{ Form::submit('Edit the project!', array('class' => 'btn btn-primary')) }}
+{{ Form::submit(Lang::get('msg.save'), array('class' => 'btn btn-primary')) }}
 
 {{ Form::close() }}
 

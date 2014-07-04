@@ -16,3 +16,7 @@ $(function() {
         }
     })
 })
+
+$(document).on('submit', '.delete-form', function(){
+    return confirm('Are you sure?');
+});

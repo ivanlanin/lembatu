@@ -1,4 +1,4 @@
 @extends('_layouts.default')
 @section('content')
-Welcome!
+Welcome {{Auth::user()->username}}!
 @stop
