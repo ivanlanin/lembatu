@@ -29,7 +29,7 @@
     <p>&nbsp;</p>
 @endif
 </div>
-<div class="col-sm-4 text-right">
+<div class="col-sm-4 action-buttons">
 @if (isset($create))
 <a class="btn btn-small btn-primary" href="{{ URL::to($create) }}">{{ Lang::get('msg.create') }}</a>
 @endif
