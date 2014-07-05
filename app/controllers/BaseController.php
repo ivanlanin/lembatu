@@ -1,5 +1,8 @@
 <?php
-// namespace Lembatu;
+namespace Lembatu\Controller;
+
+use Controller;
+use View;
 
 class BaseController extends Controller
 {

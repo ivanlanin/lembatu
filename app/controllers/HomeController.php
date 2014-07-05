@@ -1,5 +1,12 @@
 <?php
-// namespace Lembatu;
+namespace Lembatu\Controller;
+
+use Auth;
+use Input;
+use Lang;
+use Redirect;
+use Validator;
+use View;
 
 /**
  * Home controller

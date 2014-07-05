@@ -1,5 +1,14 @@
 <?php
-// namespace Lembatu;
+namespace Lembatu\Controller;
+
+use Input;
+use Lang;
+use Lembatu\Model\Project;
+use URL;
+use Session;
+use Validator;
+use Redirect;
+use View;
 
 class ProjectController extends BaseController
 {

@@ -1,5 +1,5 @@
 <?php
-// namespace Lembatu;
+use Lembatu\Model\User;
 
 class UserTableSeeder extends Seeder
 {
@@ -7,10 +7,10 @@ class UserTableSeeder extends Seeder
     {
         DB::table('users')->delete();
         User::create(array(
-            'name'     => 'Chris Sevilleja',
-            'username' => 'sevilayha',
-            'email'    => 'chris@scotch.io',
-            'password' => Hash::make('awesome'),
+            'name'     => 'Admin',
+            'username' => 'admin',
+            'email'    => 'admin@apb-group.com',
+            'password' => Hash::make('4dm1n'),
         ));
     }
 }

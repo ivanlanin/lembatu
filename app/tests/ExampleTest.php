@@ -1,5 +1,5 @@
 <?php
-// namespace Lembatu;
+namespace Lembatu\Test;
 
 class ExampleTest extends TestCase
 {
