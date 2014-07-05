@@ -69,20 +69,20 @@ class ProjectController extends BaseController
     /**
      * Display the specified resource.
      *
-     * @param  int      $id
+     * @param  int      $recordId
      * @return Response
      */
-    public function show($id)
+    public function show($recordId)
     {
-        $project = Project::find($id);
+        $project = Project::find($recordId);
         $this->pageHeader = $project->name;
         $this->breadcrumb[] = array('label' => Lang::get('msg.detail'));
 
         return View::make('projects.show')
             ->with('project', $project)
             ->with('create', 'projects/create')
-            ->with('edit', 'projects/' . $id . '/edit')
-            ->with('delete', 'projects/' . $id)
+            ->with('edit', 'projects/' . $recordId . '/edit')
+            ->with('delete', 'projects/' . $recordId)
             ->with('breadcrumb', $this->breadcrumb)
             ->with('pageHeader', $this->pageHeader);
     }
@@ -90,19 +90,19 @@ class ProjectController extends BaseController
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int      $id
+     * @param  int      $recordId
      * @return Response
      */
-    public function edit($id)
+    public function edit($recordId)
     {
-        $project = Project::find($id);
+        $project = Project::find($recordId);
         $this->pageHeader = $project->name;
         $this->breadcrumb[] = array('label' => Lang::get('msg.edit'));
 
         return View::make('projects.edit')
             ->with('project', $project)
-            ->with('detail', 'projects/' . $id)
-            ->with('delete', 'projects/' . $id)
+            ->with('detail', 'projects/' . $recordId)
+            ->with('delete', 'projects/' . $recordId)
             ->with('breadcrumb', $this->breadcrumb)
             ->with('pageHeader', $this->pageHeader);
     }
@@ -139,10 +139,10 @@ class ProjectController extends BaseController
     /**
      * Update the specified resource in storage.
      *
-     * @param  int      $id
+     * @param  int      $recordId
      * @return Response
      */
-    public function update($id)
+    public function update($recordId)
     {
         $rules = array(
             'code' => 'required',
@@ -151,30 +151,30 @@ class ProjectController extends BaseController
         $validator = Validator::make(Input::all(), $rules);
 
         if ($validator->fails()) {
-            return Redirect::to('projects/' . $id . '/edit')
+            return Redirect::to('projects/' . $recordId . '/edit')
                 ->withErrors($validator)
                 ->withInput(Input::except('password'));
         } else {
-            $project = Project::find($id);
+            $project = Project::find($recordId);
             $project->code = Input::get('code');
             $project->name = Input::get('name');
             $project->save();
 
             Session::flash('message', 'Successfully updated project!');
 
-            return Redirect::to('projects/' . $id);
+            return Redirect::to('projects/' . $recordId);
         }
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int      $id
+     * @param  int      $recordId
      * @return Response
      */
-    public function destroy($id)
+    public function destroy($recordId)
     {
-        $project = Project::find($id);
+        $project = Project::find($recordId);
         $project->delete();
 
         Session::flash('message', 'Successfully deleted the project!');

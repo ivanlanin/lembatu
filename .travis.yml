@@ -12,6 +12,5 @@ before_script:
 script:
     - ./vendor/bin/phpcs app/ -n --standard=./phpcs.xml --ignore=app/database --ignore=app/views
     - ./vendor/bin/phpcpd app/ --verbose
-    # - ./vendor/bin/phpmd app/ text design,naming,unusedcode,controversial,codesize
-    # - ./vendor/bin/phploc app/
+    - ./vendor/bin/phpmd app/ text design,naming,unusedcode,controversial,codesize --exclude "migrations"
     - phpunit
