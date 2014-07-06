@@ -1,9 +1,15 @@
 <?php
+/**
+ * This file is part of Lembatu
+ */
 namespace Lembatu\Controller;
 
 use Controller;
 use View;
 
+/**
+ * Base controller class
+ */
 class BaseController extends Controller
 {
     /**

@@ -1,6 +1,12 @@
 <?php
+/**
+ * This file is part of Lembatu
+ */
 namespace Lembatu\Test;
 
+/**
+ * Example test class
+ */
 class ExampleTest extends TestCase
 {
     /**

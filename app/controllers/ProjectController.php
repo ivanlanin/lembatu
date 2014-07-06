@@ -1,4 +1,7 @@
 <?php
+/**
+ * This file is part of Lembatu
+ */
 namespace Lembatu\Controller;
 
 use Input;
@@ -10,15 +13,18 @@ use Validator;
 use Redirect;
 use View;
 
+/**
+ * Project controller
+ */
 class ProjectController extends BaseController
 {
     /**
-     * @var array
+     * @var array Breadcrumb
      */
     private $breadcrumb;
 
     /**
-     * @var string
+     * @var string Page header
      */
     private $pageHeader;
 

@@ -1,4 +1,7 @@
 <?php
+/**
+ * This file is part of Lembatu
+ */
 namespace Lembatu\Controller;
 
 use Auth;
