@@ -1,0 +1,21 @@
+filter:
+    excluded_paths: [ 'vendor/*', 'tests/*', 'app/database/*' ]
+
+before_commands:
+    - "composer install --prefer-dist"
+
+tools:
+    php_code_sniffer:
+        enabled: true
+        config:
+            standard: PSR2
+    php_mess_detector: true
+    external_code_coverage:
+        enabled: true
+        timeout: 900
+    php_sim:
+        min_mass: 40
+    php_pdepend: true
+    php_analyzer: true
+    php_changetracking: true
+    sensiolabs_security_checker: true
