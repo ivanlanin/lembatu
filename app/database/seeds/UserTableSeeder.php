@@ -10,7 +10,7 @@ class UserTableSeeder extends Seeder
             'name'     => 'Admin',
             'username' => 'admin',
             'email'    => 'admin@apb-group.com',
-            'password' => Hash::make('4dm1n'),
+            'password' => Hash::make('admin'),
         ));
     }
 }
