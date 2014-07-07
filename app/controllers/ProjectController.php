@@ -19,14 +19,9 @@ use View;
 class ProjectController extends BaseController
 {
     /**
-     * @var array Breadcrumb
+     * @var string Module name
      */
-    private $breadcrumb;
-
-    /**
-     * @var string Page header
-     */
-    private $pageHeader;
+    protected $route = 'project';
 
     /**
      * Create instance
@@ -35,8 +30,9 @@ class ProjectController extends BaseController
      */
     public function __construct()
     {
-        $this->breadcrumb = array(array('url' => URL::to('projects'), 'label' => Lang::get('msg.projects')));
-        $this->pageHeader = Lang::get('msg.projects');
+        $this->modelClass = 'Lembatu\Model\Project';
+        $this->pageHeader = Lang::get("$this->route.projects");
+        $this->breadcrumb = array(array('url' => URL::to($this->route), 'label' => $this->pageHeader));
     }
 
     /**
@@ -46,15 +42,14 @@ class ProjectController extends BaseController
      */
     public function index()
     {
-        $projects = Project::paginate(50);
-        $this->pageHeader = Lang::get('msg.projectList');
+        $modelClass = $this->modelClass;
+        $model = $modelClass::paginate(50);
+        $this->pageHeader = Lang::get("$this->route.list");
         unset($this->breadcrumb[0]['url']);
 
-        return View::make('projects.index')
-            ->with('projects', $projects)
-            ->with('create', 'projects/create')
-            ->with('breadcrumb', $this->breadcrumb)
-            ->with('pageHeader', $this->pageHeader);
+        return $this->setView("$this->route.index")
+            ->with('create', "$this->route/create")
+            ->with('model', $model);
     }
 
     /**
@@ -65,52 +60,31 @@ class ProjectController extends BaseController
     public function create()
     {
         $this->breadcrumb[] = array('label' => Lang::get('msg.create'));
-        $this->pageHeader = Lang::get('msg.newProject');
+        $this->pageHeader = Lang::get("$this->route.new");
 
-        return View::make('projects.create')
-            ->with('breadcrumb', $this->breadcrumb)
-            ->with('pageHeader', $this->pageHeader);
+        return $this->setView("$this->route.create");
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int      $recordId
+     * @param int $recordId
      * @return Response
      */
     public function show($recordId)
     {
-        $project = Project::find($recordId);
-        $this->pageHeader = $project->name;
-        $this->breadcrumb[] = array('label' => Lang::get('msg.detail'));
-
-        return View::make('projects.show')
-            ->with('project', $project)
-            ->with('create', 'projects/create')
-            ->with('edit', 'projects/' . $recordId . '/edit')
-            ->with('delete', 'projects/' . $recordId)
-            ->with('breadcrumb', $this->breadcrumb)
-            ->with('pageHeader', $this->pageHeader);
+        return $this->viewRecord($recordId);
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int      $recordId
+     * @param int $recordId
      * @return Response
      */
     public function edit($recordId)
     {
-        $project = Project::find($recordId);
-        $this->pageHeader = $project->name;
-        $this->breadcrumb[] = array('label' => Lang::get('msg.edit'));
-
-        return View::make('projects.edit')
-            ->with('project', $project)
-            ->with('detail', 'projects/' . $recordId)
-            ->with('delete', 'projects/' . $recordId)
-            ->with('breadcrumb', $this->breadcrumb)
-            ->with('pageHeader', $this->pageHeader);
+        return $this->viewRecord($recordId, true);
     }
 
     /**
@@ -120,36 +94,30 @@ class ProjectController extends BaseController
      */
     public function store()
     {
-        $rules = array(
-            'code' => 'required',
-            'name' => 'required',
-        );
-        $validator = Validator::make(Input::all(), $rules);
-
-        if ($validator->fails()) {
-            return Redirect::to('projects/create')
-                ->withErrors($validator)
-                ->withInput(Input::except('password'));
-        } else {
-            $project = new Project;
-            $project->code = Input::get('code');
-            $project->name = Input::get('name');
-            $project->save();
-
-            Session::flash('message', 'Successfully created project!');
-
-            return Redirect::to('projects/' . $project->id);
-        }
+        return $this->save();
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  int      $recordId
+     * @param int $recordId
      * @return Response
      */
     public function update($recordId)
     {
+        return $this->save($recordId);
+    }
+
+    /**
+     * Unified save method
+     *
+     * @param int $recordId
+     * @return Response
+     */
+    private function save($recordId = null)
+    {
+        $failed = $recordId === null ? "$this->route/create" : "$this->route/$recordId/edit";
+
         $rules = array(
             'code' => 'required',
             'name' => 'required',
@@ -157,34 +125,95 @@ class ProjectController extends BaseController
         $validator = Validator::make(Input::all(), $rules);
 
         if ($validator->fails()) {
-            return Redirect::to('projects/' . $recordId . '/edit')
+            return Redirect::to($failed)
                 ->withErrors($validator)
                 ->withInput(Input::except('password'));
         } else {
-            $project = Project::find($recordId);
-            $project->code = Input::get('code');
-            $project->name = Input::get('name');
-            $project->save();
+            if ($recordId === null) {
+                $model = new $this->modelClass;
+                $message = Lang::get("$this->route.created");
+            } else {
+                $model = $this->findRecord($recordId);
+                $message = Lang::get("$this->route.updated");
+            }
+            $model->code = Input::get('code');
+            $model->name = Input::get('name');
+            $model->save();
+            $recordId = $model->id;
 
-            Session::flash('message', 'Successfully updated project!');
+            Session::flash('message', $message);
 
-            return Redirect::to('projects/' . $recordId);
+            return Redirect::to("$this->route/$recordId");
         }
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int      $recordId
+     * @param int $recordId
      * @return Response
      */
     public function destroy($recordId)
     {
-        $project = Project::find($recordId);
-        $project->delete();
+        $model = $this->findRecord($recordId);
+        $model->delete();
 
-        Session::flash('message', 'Successfully deleted the project!');
+        Session::flash('message', Lang::get("$this->route.deleted"));
 
-        return Redirect::to('projects');
+        return Redirect::to($this->route);
+    }
+
+    /**
+     * Find record by Id.
+     *
+     * @param int $recordId
+     * @return \Eloquent
+     */
+    private function findRecord($recordId)
+    {
+        $modelClass = $this->modelClass;
+
+        return $modelClass::find($recordId);
+    }
+
+    /**
+     * Get record.
+     *
+     * @param int $recordId
+     * @param bool $isForm
+     * @return Response
+     */
+    private function viewRecord($recordId, $isForm = false)
+    {
+        $label = $isForm ? Lang::get('msg.edit') : Lang::get('msg.detail');
+        $viewName = $isForm ? "$this->route.edit" : "$this->route.show";
+        $model = $this->findRecord($recordId);
+        $this->pageHeader = $model->name;
+        $this->breadcrumb[] = array('label' => Lang::get($label));
+
+        $view = $this->setView($viewName)
+            ->with('model', $model)
+            ->with('create', "$this->route/create")
+            ->with('delete', "$this->route/$recordId");
+        if ($isForm) {
+            $view->with('detail', "$this->route/$recordId");
+        } else {
+            $view->with('edit', "$this->route/$recordId/edit");
+        }
+
+        return $view;
+    }
+
+    /**
+     * Set view.
+     *
+     * @param string $view
+     * @return \View
+     */
+    private function setView($view)
+    {
+        return View::make($view)
+            ->with('breadcrumb', $this->breadcrumb)
+            ->with('pageHeader', $this->pageHeader);
     }
 }

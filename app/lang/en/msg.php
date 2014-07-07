@@ -25,10 +25,4 @@ return array(
     'detail' => 'Detail',
     'delete' => 'Delete',
     'save' => 'Save',
-
-    // Projects
-    'projects' => 'Projects',
-    'newProject' => 'New project',
-    'editProject' => 'Edit project',
-    'projectList' => 'Project list',
 );

@@ -8,7 +8,7 @@
     <li class="active">
     <a href="#"><i class="fa fa-table fa-fw"></i> {{ Lang::get('msg.manage') }}<span class="fa arrow"></span></a>
     <ul class="nav nav-second-level">
-        <li><a href="{{ URL::to('projects') }}">{{ Lang::get('msg.projects') }}</a></li>
+        <li><a href="{{ URL::to('project') }}">{{ Lang::get('project.projects') }}</a></li>
     </ul>
     </li>
     <li><a href="#"><span class="glyphicon glyphicon-stats fa-fw"></span> {{ Lang::get('msg.report') }}</a></li>

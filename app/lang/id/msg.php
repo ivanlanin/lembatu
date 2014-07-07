@@ -25,10 +25,4 @@ return array(
     'detail' => 'Detail',
     'delete' => 'Hapus',
     'save' => 'Simpan',
-
-    // Projects
-    'projects' => 'Proyek',
-    'newProject' => 'Proyek baru',
-    'editProject' => 'Edit proyek',
-    'projectList' => 'Daftar proyek',
 );

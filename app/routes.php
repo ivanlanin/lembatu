@@ -14,5 +14,5 @@ Route::post('login', array('uses' => 'Lembatu\Controller\HomeController@doLogin'
 // Resources
 Route::group(array('before' => 'auth'), function () {
     Route::get('/', array('uses' => 'Lembatu\Controller\HomeController@showDashboard'));
-    Route::resource('projects', 'Lembatu\Controller\ProjectController');
+    Route::resource('project', 'Lembatu\Controller\ProjectController');
 });

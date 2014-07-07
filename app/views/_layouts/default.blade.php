@@ -30,11 +30,11 @@
 @endif
 </div>
 <div class="col-sm-4 action-buttons">
-@if (isset($create))
-<a class="btn btn-small btn-primary" href="{{ URL::to($create) }}">{{ Lang::get('msg.create') }}</a>
-@endif
 @if (isset($detail))
 <a class="btn btn-small btn-primary" href="{{ URL::to($detail) }}">{{ Lang::get('msg.back') }}</a>
+@endif
+@if (isset($create))
+<a class="btn btn-small btn-primary" href="{{ URL::to($create) }}">{{ Lang::get('msg.create') }}</a>
 @endif
 @if (isset($edit))
 <a class="btn btn-small btn-primary" href="{{ URL::to($edit) }}">{{ Lang::get('msg.edit') }}</a>

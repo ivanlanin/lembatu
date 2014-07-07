@@ -13,21 +13,21 @@
         </tr>
     </thead>
     <tbody>
-@foreach($projects as $key => $value)
+@foreach($model as $key => $value)
         <tr>
             <td>{{ $value->id }}</td>
             <td>{{ $value->code }}</td>
             <td>{{ $value->name }}</td>
             <td>
-                <a class="btn btn-small btn-primary" href="{{ URL::to('projects/' . $value->id) }}">{{ Lang::get('msg.detail') }}</a>
-                <a class="btn btn-small btn-primary" href="{{ URL::to('projects/' . $value->id . '/edit') }}">{{ Lang::get('msg.edit') }}</a>
-                {{Form::delete('projects/' . $value->id)}}
+                <a class="btn btn-small btn-primary" href="{{ URL::to('project/' . $value->id) }}">{{ Lang::get('msg.detail') }}</a>
+                <a class="btn btn-small btn-primary" href="{{ URL::to('project/' . $value->id . '/edit') }}">{{ Lang::get('msg.edit') }}</a>
+                {{Form::delete('project/' . $value->id)}}
             </td>
         </tr>
 @endforeach
     </tbody>
 </table>
 
-{{ $projects->links() }}
+{{ $model->links() }}
 
 @stop

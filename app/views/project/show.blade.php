@@ -4,9 +4,9 @@
 @include('_includes.message')
 
 <div class="jumbotron text-center">
-    <h2>{{ $project->name }}</h2>
+    <h2>{{ $model->name }}</h2>
     <p>
-        <strong>Code</strong> {{ $project->code }}<br>
+        <strong>Code</strong> {{ $model->code }}<br>
     </p>
 </div>
 

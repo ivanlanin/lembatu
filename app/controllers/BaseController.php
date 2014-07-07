@@ -13,6 +13,26 @@ use View;
 class BaseController extends Controller
 {
     /**
+     * @var string Module name
+     */
+    protected $route;
+
+    /**
+     * @var \Eloquent Model class
+     */
+    protected $modelClass;
+
+    /**
+     * @var array Breadcrumb
+     */
+    protected $breadcrumb;
+
+    /**
+     * @var string Page header
+     */
+    protected $pageHeader;
+
+    /**
      * Setup the layout used by the controller.
      *
      * @return void
