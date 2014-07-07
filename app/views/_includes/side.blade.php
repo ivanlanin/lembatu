@@ -8,6 +8,9 @@
     <li class="active">
     <a href="#"><i class="fa fa-table fa-fw"></i> {{ Lang::get('msg.manage') }}<span class="fa arrow"></span></a>
     <ul class="nav nav-second-level">
+        <li><a href="{{ URL::to('client') }}">{{ Lang::get('client.clients') }}</a></li>
+    </ul>
+    <ul class="nav nav-second-level">
         <li><a href="{{ URL::to('project') }}">{{ Lang::get('project.projects') }}</a></li>
     </ul>
     </li>

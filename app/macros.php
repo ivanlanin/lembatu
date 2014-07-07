@@ -16,7 +16,7 @@ Form::macro('delete', function (
         $label = Lang::get('msg.delete');
     }
     if (empty($params)) {
-        $params = array('class'  => 'delete-form');
+        $params = array('class' => 'delete-form');
     };
     $params['url'] = $url;
     $params['method'] = 'DELETE';
