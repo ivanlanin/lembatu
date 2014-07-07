@@ -28,6 +28,11 @@ class BaseController extends Controller
     protected $breadcrumb;
 
     /**
+     * @var string Page title
+     */
+    protected $pageTitle;
+
+    /**
      * @var string Page header
      */
     protected $pageHeader;

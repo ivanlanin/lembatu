@@ -185,10 +185,10 @@ class ProjectController extends BaseController
      */
     private function viewRecord($recordId, $isForm = false)
     {
+        $model = $this->findRecord($recordId);
         $label = $isForm ? Lang::get('msg.edit') : Lang::get('msg.detail');
         $viewName = $isForm ? "$this->route.edit" : "$this->route.show";
-        $model = $this->findRecord($recordId);
-        $this->pageHeader = $model->name;
+        $this->pageHeader = $isForm ? Lang::get("$this->route.edit") : $model->name;
         $this->breadcrumb[] = array('label' => Lang::get($label));
 
         $view = $this->setView($viewName)
@@ -214,6 +214,7 @@ class ProjectController extends BaseController
     {
         return View::make($view)
             ->with('breadcrumb', $this->breadcrumb)
-            ->with('pageHeader', $this->pageHeader);
+            ->with('pageHeader', $this->pageHeader)
+            ->with('pageTitle', $this->pageHeader);
     }
 }
