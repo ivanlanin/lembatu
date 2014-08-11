@@ -4,9 +4,9 @@
  */
 namespace Lembatu\Controller;
 
+use Lembatu\Model\Project;
 use Input;
 use Lang;
-use Lembatu\Model\Project;
 use URL;
 use Session;
 use Validator;
@@ -136,6 +136,8 @@ class ProjectController extends BaseController
                 $model = $this->findRecord($recordId);
                 $message = Lang::get("$this->route.updated");
             }
+            var_dump($model);
+            die();
             $model->code = Input::get('code');
             $model->name = Input::get('name');
             $model->save();
